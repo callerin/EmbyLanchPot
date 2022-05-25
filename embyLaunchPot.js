@@ -19,7 +19,7 @@ var timer = setInterval(function () {
 			let buttonhtml = `<div class ="detailButtons mainDetailButtons flex align-items-flex-start flex-wrap-wrap focuscontainer-x">
             <button id="embyPot" type="button" class="detailButton  emby-button potplayer" title="Potplayer"> <div class="detailButton-content"> <i class="md-icon detailButton-icon"></i>  <div class="detailButton-text">PotPlayer</div> </div> </button>
              </div>`
-			mainDetailButtons.insertAdjacentHTML('beforeend', buttonhtml)   // 按钮插入位置
+			mainDetailButtons.insertAdjacentHTML('afterBegin', buttonhtml)   // 按钮插入位置
 			document.querySelector("div[is='emby-scroller']:not(.hide) #embyPot").onclick = embyPot;
 		}
 
