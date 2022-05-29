@@ -17,9 +17,9 @@ var timer = setInterval(function() {
             var html = mainDetailButtons.innerHTML;
             let buttonhtml = `<button is="embyPot" type="button"
 	class="raised detailButton emby-button emby-button-backdropfilter raised-backdropfilter detailButton-primary"
-	title="Potplayer" aria-label="Potplayer">
+	title="Potplayer" >
 	<i class="md-icon button-icon button-icon-left"></i>
-	<span class="playButtonText">Potplayer</span>
+	<span class="Text">Potplayer</span>
 </button>`
 
 
@@ -27,7 +27,7 @@ var timer = setInterval(function() {
             document.querySelector("button[is='embyPot']:not(.hide)").onclick = embyPot;
         }
     }
-}, 4000)
+}, 350)
 
 async function embyPot() {
     var mediaUrl = $("div[is='emby-scroller']:not(.hide) div.sectionTitle.sectionTitle-cards div").siblings('div')[0];
