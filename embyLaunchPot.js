@@ -1,26 +1,31 @@
 
 // ==UserScript==
-// @name         embyLaunchPotplayer
-// @namespace    http://tampermonkey.net/
-// @version      0.5
-// @description  try to take over the world!
-// @author       You
-// @include             *:8096*
-// @grant        none
-// @require      https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js
+// @name embyLaunchPotplayer
+// @namespace http://tampermonkey.net/
+// @version 0.5
+// @description try to take over the world!
+// @author You
+// @include *:8096*
+// @grant none
+// @require https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js
 // ==/UserScript==
 var timer = setInterval(function () {
-	var potplayer = $("div[is='emby-scroller']:not(.hide) .potplayer")[0];
+	var potplayer = $("button[is='embyPot']:not(.hide) ")[0];
 
 	if (!potplayer) {
 		var mainDetailButtons = $("div[is='emby-scroller']:not(.hide) .mainDetailButtons")[0];
 		if (mainDetailButtons) {
 			var html = mainDetailButtons.innerHTML;
-			let buttonhtml = `<div class ="detailButtons mainDetailButtons flex align-items-flex-start flex-wrap-wrap focuscontainer-x">
-            <button id="embyPot" type="button" class="detailButton  emby-button potplayer" title="Potplayer"> <div class="detailButton-content"> <i class="md-icon detailButton-icon"></i>  <div class="detailButton-text">PotPlayer</div> </div> </button>
-             </div>`
-			mainDetailButtons.insertAdjacentHTML('afterBegin', buttonhtml)   // 按钮插入位置
-			document.querySelector("div[is='emby-scroller']:not(.hide) #embyPot").onclick = embyPot;
+			let buttonhtml = `<button is="embyPot" type="button"
+	class="btnPlay btnMainPlay raised detailButton emby-button emby-button-backdropfilter raised-backdropfilter detailButton-primary"
+	data-mode="play" title="Potplayer" aria-label="Potplayer">
+	<i class="md-icon button-icon button-icon-left"></i>
+	<span class="playButtonText">Potplayer</span>
+</button>`
+
+
+			mainDetailButtons.insertAdjacentHTML('beforeEnd', buttonhtml) // 按钮插入位置
+			document.querySelector("button[is='embyPot']:not(.hide)").onclick = embyPot;
 		}
 
 	}
