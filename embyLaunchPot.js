@@ -16,8 +16,8 @@ var timer = setInterval(function() {
         if (mainDetailButtons) {
             var html = mainDetailButtons.innerHTML;
             let buttonhtml = `<button is="embyPot" type="button"
-	class="btnPlay btnMainPlay raised detailButton emby-button emby-button-backdropfilter raised-backdropfilter detailButton-primary"
-	data-mode="play" title="Potplayer" aria-label="Potplayer">
+	class="raised detailButton emby-button emby-button-backdropfilter raised-backdropfilter detailButton-primary"
+	title="Potplayer" aria-label="Potplayer">
 	<i class="md-icon button-icon button-icon-left"></i>
 	<span class="playButtonText">Potplayer</span>
 </button>`
@@ -26,9 +26,8 @@ var timer = setInterval(function() {
             mainDetailButtons.insertAdjacentHTML('afterBegin', buttonhtml) // 按钮插入位置
             document.querySelector("button[is='embyPot']:not(.hide)").onclick = embyPot;
         }
-
     }
-}, 400)
+}, 4000)
 
 async function embyPot() {
     var mediaUrl = $("div[is='emby-scroller']:not(.hide) div.sectionTitle.sectionTitle-cards div").siblings('div')[0];
