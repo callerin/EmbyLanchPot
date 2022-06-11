@@ -10,8 +10,9 @@
 // ==/UserScript==
 var timer = setInterval(function() {
     var potplayer = $("button[is='embyPot']:not(.hide) ")[0];
+    var mediaUrl = $("div[is='emby-scroller']:not(.hide) div.sectionTitle.sectionTitle-cards div").siblings('div')[0];
 
-    if (!potplayer) {
+    if (!potplayer && mediaUrl) {
         var mainDetailButtons = $("div[is='emby-scroller']:not(.hide) .mainDetailButtons")[0];
         if (mainDetailButtons) {
             var html = mainDetailButtons.innerHTML;
